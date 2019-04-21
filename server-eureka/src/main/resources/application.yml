@@ -1,0 +1,17 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: server-eureka
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #    是否需要检索服务（检索服务是client端的事）
+    fetch-registry: false
+#    是否向注册中心注册自己（因为它就是注册中心，负载均衡时需要用到）
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
